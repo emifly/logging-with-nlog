@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 
 var servicesProvider = new ServiceCollection()
-    .AddTransient<App>()
+    .AddTransient<Bank>()
     .AddLogging(loggingBuilder =>
     {
         loggingBuilder.ClearProviders();
@@ -12,5 +12,5 @@ var servicesProvider = new ServiceCollection()
     })
     .BuildServiceProvider();
 
-var app = servicesProvider.GetRequiredService<App>();
-app.Run();
+var bank = servicesProvider.GetRequiredService<Bank>();
+bank.LetsGo();
